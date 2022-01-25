@@ -1,3 +1,9 @@
+/*
+The company that you work for suspects that credit card distributors 
+have been mailing out cards that have invalid numbers. In this project, 
+you have the role of a clerk who checks if credit cards are valid. 
+*/
+
 // All valid credit card numbers
 const valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
 const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
