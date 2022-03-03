@@ -15,17 +15,31 @@ class Field {
     process.stdout.write(this.field.join(", "))
   }
 
-  static generateField(height, width, percentage) {
+  static generateField(height, width, percentage){
 
-    var numHoles = (percentage/100)*height*width;
-    var this.field = new Array(width);
-    this.field[0] = pathCharacter;
-    const elementArr = [hat, hole, fieldCharacter];
+    var newField = [];
+    let probHoles = Math.floor(percentage);
+    const remainingCharsArr = [hat, fieldCharacter];
 
-    for (let i =0; i<width; i++){
-      this.field[i] = 
+    for (let i=0; i<height; i++){
+      var newArr = [];
+      for (let j=0; j<width; j++ ){
+        if (i === 0 && j === 0){
+          newArr.push(pathCharacter);
+          continue;
+        }
+        let probVal = Math.floor(Math.random()*100);
+        if (probVal <= probHoles){
+          newArr.push(hole);
+        }
+        else{
+          newArr.push(remainingCharsArr[Math.floor(Math.random()*remainingCharsArr.length)]);
+        }
+      }
+      newField.push(newArr);
     }
 
+    return newField;
   }
 
 };
@@ -38,19 +52,23 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 
+console.log(Field.generateField(4,3,50));
+
 let endOfGame = false;
 
-while (!endOfGames) {
+// while (!endOfGames) {
 
-  let direction = prompt('In which direction would you like to move?');
+//   let direction = prompt('In which direction would you like to move?');
 
-  if (direction.toLowerCase() in directions){
-    switch(direction){
-      case 'up':
-      case 'down':
-      case 'right':
-      case 'left':
-      }
-    };
+//   if (direction.toLowerCase() in directions){
+//     switch(direction){
+//       case 'up':
+//       case 'down':
+//       case 'right':
+//       case 'left':
+//       }
+//     };
 
-}
+// }
+
+
